@@ -15,6 +15,12 @@
     <%= form.label :title %>
     <%= form.text_field :title, id: :quiz_title %>
   </div>
+  <div class="f-group">
+    <label for="subtitle">Questions</label>
+    <%= f.fields_for :questions do |builder| %>
+      <%= render 'question_answer_fields', f: builder %>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
