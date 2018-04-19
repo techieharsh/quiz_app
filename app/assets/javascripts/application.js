@@ -11,6 +11,6 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
+//= require jquery.min.js
+//= require jquery-ui.min.js
 //= require cocoon
-//= require_tree .

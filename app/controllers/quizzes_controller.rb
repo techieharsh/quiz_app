@@ -70,6 +70,6 @@ class QuizzesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quiz_params
-      params.require(:quiz).permit(:title, :questions_attributes=>[:id, :title, :ques_type,:answer1,:answer2,:answer3,:answer4,:correct_answer,:quiz_id, :_destroy])
+      params.require(:quiz).permit(:title, :questions_attributes=>[:id, :question, :ques_type,:option1,:option2,:option3,:option4,:correct_answer,:quiz_id, :_destroy])
     end
 end
