@@ -1,4 +1,5 @@
 <%= form_with(model: quiz, local: true) do |f| %>
+
   <% if quiz.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
@@ -11,20 +12,26 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <br/>
+
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, id: :quiz_title %>
+    <%= f.text_field :title, id: :quiz_title, class: 'form-control', placeholder: 'Title' %>
   </div>
-  <div class="f-group">
-    <label for="subtitle">Questions</label>
+
+  <div class="form-group">
+    <label for="subtitle">Create Questions</label>
     <%= f.fields_for :questions do |builder| %>
       <%= render 'question_fields', f: builder %>
     <% end %>
   </div>
-<div class="f-group"> 
-            <%= link_to_add_association "Add Language", f, :questions %>
-          </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group"> 
+    <%= link_to_add_association "Add Question", f, :questions, class: 'btn btn-info' %>
   </div>
+
+  <div class="actions">
+    <%= f.submit 'Submit', class: 'btn btn-lg btn-success', role: 'button' %>
+  </div>
+
 <% end %>
