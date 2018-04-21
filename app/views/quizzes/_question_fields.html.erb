@@ -1,36 +1,27 @@
 <div class="form-group">
-    <label for="subtitle">Question</label>
+    <label for="subtitle">Question Type</label>
     <%= f.select :ques_type, options_for_select(AppConstant::QuesType), {:include_blank => '--Select Question Type--'}, {class: 'form-control'} %>
 
     
 </div>
 <div class="form-group">
-<label for="subtitle">Question <%= f.index %></label>
-<%= f.text_field :question, class: 'form-control' %>
+<label for="subtitle">Question</label>
+<%= f.text_area :question, class: 'form-control' %>
 </div>
 
-<div class="row">
-    <div class="col">
-    	<label for="subtitle">Option 1</label>
-    	<%= f.text_field :option1, class: 'form-control', placeholder: 'First Answer' %>
-    </div>
-    <div class="col">
-      <label for="subtitle">Option 2</label>
-    	<%= f.text_field :option2, class: 'form-control', placeholder: 'First Second' %>
-    </div>
-</div>
-<br/>
-<div class="row">
-    <div class="col">
-    	<label for="subtitle">Option 1</label>
-    	<%= f.text_field :option3, class: 'form-control', placeholder: 'First Third' %>
-    </div>
-    <div class="col">
-      <label for="subtitle">Option 2</label>
-    	<%= f.text_field :option4, class: 'form-control', placeholder: 'First Fourth' %>
-    </div>
-</div>
-<br/>
+
+    <div class="form-group">
+    <label for="subtitle">Create Questions</label>
+    <%= f.fields_for :answers, @answer do |builder| %>
+      <%= render 'answer_fields', f: builder %>
+    <% end %>
+  </div>
+  <div class="form-group"> 
+    <%= link_to_add_association "Add Ans", f, :answers, class: 'btn btn-info' %>
+  </div>
+
+
+
 
 <div class="form-group">
 <label for="subtitle">Correct Option No.</label>

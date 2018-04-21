@@ -1,5 +1,6 @@
 class QuizzesController < ApplicationController
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /quizzes
   # GET /quizzes.json
@@ -15,7 +16,8 @@ class QuizzesController < ApplicationController
   # GET /quizzes/new
   def new
     @quiz = Quiz.new
-    @quiz.questions.build
+    @answer = @quiz.questions.build.answers.build
+    
   end
 
   # GET /quizzes/1/edit
@@ -70,6 +72,6 @@ class QuizzesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quiz_params
-      params.require(:quiz).permit(:title, :questions_attributes=>[:id, :question, :ques_type,:option1,:option2,:option3,:option4,:correct_answer,:quiz_id, :_destroy])
+      params.require(:quiz).permit(:title, :questions_attributes=>[:id, :question, :ques_type,:correct_answer,:quiz_id, :_destroy, answers_attributes: [:id, :option, :_destroy]])
     end
 end

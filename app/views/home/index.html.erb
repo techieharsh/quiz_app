@@ -1,2 +1,24 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="container">
+	<!-- Page Features -->
+	<!-- Page Heading -->
+	<h1 class="my-4 text-center">Welcome
+	<large>To QuizApp</large>
+	</h1><br/>
+	<% @quizzes.each do |quiz| %>
+		<div class="row text-center">
+
+			<div class="col-lg-3 col-md-6 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title"><%= quiz.title %></h4>
+					</div>
+					<div class="card-footer">
+						<%= link_to "Start Quiz", new_attempt_path(:quiz_id=>quiz.id), class: 'btn btn-primary' %>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	<% end %>
+    <!-- /.row -->
+</div>
