@@ -1,0 +1,14 @@
+<label>
+  <%= ques.object.question.question %>
+</label>
+<div class="radio">
+  <% ques.object.question.answers.each do |answer_option| %>
+    <p>
+      <label>
+        <%= answer_option.option %>
+        <%= ques.radio_button :answer_id, answer_option.id %>
+        <%= ques.hidden_field :question_id %>
+      </label>
+    </p>
+  <% end %>
+</div>

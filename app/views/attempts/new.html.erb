@@ -1,0 +1,11 @@
+<h1>
+  <%= @quiz.title %>
+</h1>
+
+
+<%= form_for [ @quiz, @attempt ] do |f| %>
+  <%= f.fields_for :quizsubmits do |bundler| %>
+    <%= render "quizsubmit_fields", ques: bundler %>
+  <% end %>
+  <%= f.submit "Finish quiz", class: "btn btn-primary" %>
+<% end %>
