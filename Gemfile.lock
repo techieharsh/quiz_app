@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/nathanvda/cocoon.git
+  remote: https://github.com/nathanvda/cocoon.git
   revision: 1e0212f89d493cdc263b1859bcf38e391cd61ced
   specs:
     cocoon (1.2.11)
