@@ -59,3 +59,8 @@ gem "cocoon"
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
+
+group :production do   
+    gem 'pg'  
+    gem 'rails_12factor'
+end
