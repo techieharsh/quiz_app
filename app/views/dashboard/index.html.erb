@@ -2,7 +2,7 @@
 
 <div class="container">
   <h1>Quizzes</h1>
-
+<% if @quizzes.count > 0 %>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -12,6 +12,7 @@
     </thead>
 
     <tbody>
+
       <% @quizzes.each do |quiz| %>
         <tr>
           <td style="text-align: center"><%= quiz.title %></td>
@@ -22,7 +23,9 @@
       <% end %>
     </tbody>
   </table>
-
+<% else %>
+No Quiz has been added yet.
+<% end %>
   <br>
 
   <%= link_to 'New Quiz', new_quiz_path, class: 'btn btn-lg btn-primary', role: 'button' %>
