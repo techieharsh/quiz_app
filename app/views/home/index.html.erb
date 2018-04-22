@@ -4,9 +4,10 @@
 	<h1 class="my-4 text-center">Welcome
 	<large>To QuizApp</large>
 	</h1><br/>
-	<% @quizzes.each do |quiz| %>
+	<% if @quizzes.count > 0 %>
+	
 		<div class="row text-center">
-
+         <% @quizzes.each do |quiz| %>
 			<div class="col-lg-3 col-md-6 mb-4">
 				<div class="card">
 					<div class="card-body">
@@ -17,8 +18,13 @@
 					</div>
 				</div>
 			</div>
-
+        <% end %>
 		</div>
+	
+	<% else %>
+	<div class="row text-center">
+	<p> No quiz has been created yet."
+	</div>
 	<% end %>
     <!-- /.row -->
 </div>
