@@ -56,7 +56,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-gem "cocoon"
+gem 'cocoon', :git => 'git://github.com/nathanvda/cocoon.git'
 
 gem 'devise'
 gem 'cancancan'
