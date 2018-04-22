@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="subtitle">Question Type</label>
-    <%= f.select :ques_type, options_for_select(AppConstant::QuesType), {:include_blank => '--Select Question Type--'}, {class: 'form-control'} %>
+    <%= f.select :ques_type, options_for_select(AppConstant::QuesType,f.object.ques_type ), {:include_blank => '--Select Question Type--'}, {class: 'form-control'} %>
 
     
 </div>
@@ -24,6 +24,6 @@
 
 
 <div class="form-group">
-<label for="subtitle">Correct Option No.</label>
+<label for="subtitle">Correct Option</label>
 <%= f.text_field :correct_answer, class: 'form-control' %>
 </div>

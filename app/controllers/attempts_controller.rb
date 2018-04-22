@@ -11,6 +11,7 @@ class AttemptsController < ApplicationController
     @attempt = @quiz.attempts.build attempt_params
     @attempt[:user_id] = current_user.id
     if @attempt.save
+        QuizMailer.send_score_to_student(@quiz.id, @attempt.id, current_user.email).deliver_now
         redirect_to quiz_attempt_path(@quiz,@attempt), notice: 'Quiz is successfully submitted.' 
     end
   end

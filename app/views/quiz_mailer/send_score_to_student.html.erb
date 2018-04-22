@@ -1,15 +1,13 @@
-<div class="container">
-    <div class="card text-white bg-secondary my-4 text-center">
-        <div class="card-body">
-          <h1 class="text-center">Quiz :: <%= @quiz.title %></h1>
-	    <p class="text-center result-text">
-	    Your Score is ::<%= @result %> %
-	    </p>
-        </div>
-      </div>
-	<div class="row">
-	    <div class="col-md-12 col-xs-12">
-	        <div class="question">
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quiz Result</title>
+</head>
+<body>
+<div><h4>Quiz :: <span style="color: #792ea5"><%= @quiz.title %></span></h4></div>
+<div><h4>Your Score :: <span style="color: #f28415"><%= @result %> %</span></h4></div>
+<h1>Q & A </h1>
+<div class="question">
 	           <% i=1 %>
 	          	<% @attempt.quizsubmits.each do |ques| %>
 	          		<h5><b>(<%= i %>) <%= ques.question.question %></b><br/></h5>
@@ -20,23 +18,22 @@
 
 	          			</ul>
 	          		<% end %>
-	          		<span class="badge badge-info">Correct Answer:
+	          		<span style="padding: 5px; color: #17A2B8">Correct Answer:
 	              		<%= ques.question.correct_answer %>
 	          		</span>
                     <% if ques.question.correct_answer == ques.answer.option %>
-		          		<span class="badge badge-success">Your Answer:
+		          		<span style="padding: 5px; color: #2bc648">Your Answer:
 		              		<%= ques.answer.option %>
 		          		</span>
                     <% else %>
-	                    <span class="badge badge-danger">Your Answer:
+	                    <span style="padding: 5px; color: #DC4184">Your Answer:
 		              		<%= ques.answer.option %>
 		          		</span>
                     <% end %>
                     <% i +=1 %>
-                    <hr class="style2">
+                    <hr>
                     <br/>
 	          	<% end %>
 	        </div>
-	    </div>
-	</div>
-</div>
+</body>
+</html>
